@@ -3,8 +3,7 @@ const { ObjectId } = mongoose.Schema.Types;
 
 const SlotSchema = new mongoose.Schema({
   date: {
-    type: Date,
-    default: new Date(),
+    type: String,
   },
   start_time: {
     type: String,

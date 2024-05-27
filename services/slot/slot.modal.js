@@ -1,11 +1,13 @@
 const DefaultModal = require("../default/default.schema");
 const SlotSchema = require("./slot.schema");
+const moment = require("moment");
 
 class SlotModal {
   checkSlots(salon_id, barber_id) {
     let slots_present = SlotSchema.findOne({
       salon_id: salon_id,
       barber_id: barber_id,
+      date: moment().format("DD-MM-YY"),
     });
 
     return new Promise(async (resolve, reject) => {
@@ -25,6 +27,7 @@ class SlotModal {
       start_time,
       end_time,
       slots,
+      date: moment().format("DD-MM-YY"),
     });
     return new Promise(async (resolve, reject) => {
       try {

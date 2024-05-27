@@ -5,9 +5,9 @@ const message = require("../../utils/message.json");
 class SalonHandler {
   async getNearBySalons(request, response) {
     try {
-      const { lat, long } = request.body;
+      const { lat, long, radius = 10000 } = request.body;
 
-      var result = await salonModal.getNearBySalons(lat, long);
+      var result = await salonModal.getNearBySalons(lat, long, radius);
       if (result) {
         response.send(util.success(result, "Salons Retrived"));
       } else {

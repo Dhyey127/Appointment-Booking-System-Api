@@ -85,7 +85,6 @@ class slotHandler {
   async bookSlot(request, response) {
     try {
       const { slots, id } = request.body;
-      console.log("🚀 ~ slotHandler ~ bookSlot ~ slots:", slots);
 
       if (slots && id) {
         // check need to create slot

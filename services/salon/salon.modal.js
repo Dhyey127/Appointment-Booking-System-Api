@@ -3,8 +3,7 @@ const SalonSchema = require("./salon.schema");
 const ServiceSchema = require("../service/service.schema");
 
 class SalonModal {
-  getNearBySalons(lat, long) {
-    const maxDistance = 10000; // meters
+  getNearBySalons(lat, long, radius) {
     let result = SalonSchema.find({
       location: {
         $near: {
@@ -12,7 +11,7 @@ class SalonModal {
             type: "Point",
             coordinates: [parseFloat(lat), parseFloat(long)],
           },
-          $maxDistance: maxDistance,
+          $maxDistance: parseInt(radius),
         },
       },
     });
